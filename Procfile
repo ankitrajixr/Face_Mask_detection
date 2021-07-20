@@ -1,2 +1,2 @@
-web: gunicorn -b :$PORT app:app
+web: gunicorn app:app
 #not needed for running on localhost

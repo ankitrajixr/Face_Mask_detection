@@ -7,3 +7,4 @@ matplotlib>=1.4.3
 pandas>=0.19
 argparse==1.4.0
 opencv-python
+itsdangerous==1.1.0

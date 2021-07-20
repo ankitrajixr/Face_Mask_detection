@@ -8,3 +8,4 @@ pandas>=0.19
 argparse==1.4.0
 opencv-python
 itsdangerous==1.1.0
+click<7.2.0,>=7.1.1

@@ -135,20 +135,20 @@ def generate_frames():
         yield(b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-@app.route('/video')
+@app.route('./video')
 def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@app.route('/')
+@app.route('./')
 def index(name=None):
     return render_template('index.html',name=name)
 
-@app.route('/exec2')
+@app.route('./exec2')
 def parse(name=None):
     return render_template('about.html',name=name)
 
-@app.route('/exec')
+@app.route('./exec')
 def parse1(name=None):
 	return render_template('aboutproj.html',name=name)
 

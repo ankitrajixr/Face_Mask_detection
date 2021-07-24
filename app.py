@@ -6,8 +6,13 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import argparse
 import imutils
-import cv2
 import os
+
+cap = cv2.VideoCapture(0)
+fourcc = cv2.VideoWriter_fourcc(*'vp80')
+video = cv2.VideoWriter('static/myvideo.webm',fourcc ,6,(320,240))
+currentframe=0
+app = Flask(__name__, static_folder='static')
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
 	# take the dimensions of the frame and then construct blob from it
@@ -93,13 +98,12 @@ print("[INFO] loading face mask detector model...")
 maskNet = load_model(args["model"])
 
 
-app = Flask(__name__)
-camera=cv2.VideoCapture(0)
+
 def generate_frames():
     while True:
             
         ## read the camera frame
-        success,frame=camera.read()
+        success,frame=cap.read()
         if not success:
             break
         else:
